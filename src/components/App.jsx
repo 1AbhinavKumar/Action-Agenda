@@ -1,22 +1,22 @@
-import React ,{useState,useEffect} from "react";
-import {BrowserRouter ,Route,Link} from 'react-router-dom'
- 
+import React, { useState } from "react";
+// import { BrowserRouter, Route, Link } from 'react-router-dom'
 
-let globalId=0 // we have used global id here so that we can filter the element we need to remove on the basis of their unique numbering so that we can use filter.
-function App(){
 
-    
-    const [task, setTask]= useState("")
-    const [todos, setTodos]= useState([]) // we have the array of object not the array of strings. 
+let globalId = 0 // we have used global id here so that we can filter the element we need to remove on the basis of their unique numbering so that we can use filter.
+function App() {
 
-    function createtodo(event){
+
+    const [task, setTask] = useState("")
+    const [todos, setTodos] = useState([]) // we have the array of object not the array of strings. 
+
+    function createtodo(event) {
         // console.log (`Task value ${task}`)\
         event.preventDefault()
-        setTodos(oldTodos=>{
+        setTodos(oldTodos => {
             // console.log(1)
             setTask('')    // since we have to make input field empty everytime we hit enter at todo
             // return [...oldTodos,task]  // since we have to have to also delete we need something to specify so using global id   
-            return [...oldTodos, {todo:task,id :globalId++}]
+            return [...oldTodos, { todo: task, id: globalId++ }]
         })
         // console.log(2)
         // setTask('')    // although set task is working here but we cannot use it here as react don't function line wise like python as in console it implements 2 first before 1 .
@@ -31,13 +31,13 @@ function App(){
     //     }
     // }
 
-    function deleteitem(itemId){
-        setTodos(oldTodos=>oldTodos.filter(item=> item.id!==itemId))
+    function deleteitem(itemId) {
+        setTodos(oldTodos => oldTodos.filter(item => item.id !== itemId))
     }
 
     return <div>
-        <h1>To Do App </h1>
-        
+
+
 
         {/* <input type= "text"
             onKeyDown={checkforkey}   
@@ -51,28 +51,46 @@ function App(){
 
 
         {/* another way of doing the thing done above by using the html 'form' tag as form tag has ususal property of submit the form by enter button and then refreshing the site. */}
-        
-        <form onSubmit={createtodo}>
+
+        {/* <form onSubmit={createtodo}>
             <input type="text"
-            value={task}
-            onChange={event=>{
-                setTask(event.target.value)
-            }}
+                value={task}
+                onChange={event => {
+                    setTask(event.target.value)
+                }}
             />
             <button id="todo" type="submit">Todo</button>  {/*here button type submit enable us to use Enter button by default */}
-            
-        </form>
+        {/* </form> */}
 
-        <ul>
-            {todos.map((item)=>{             // here todos.map is mappint out each element in the form of li we could also get the same result if we have used <li> "mehul"</li> in the const array then returned simply {todos}.
-                return <div key={item.id}>
-                    <li>{item.todo}  ({item.id})</li>
-                    <button onClick={()=>deleteitem(item.id)}>Delete</button>  
-                    {/* here we have used ()=> deleteitem(item.id) because we want to delete the items on the basis of their id  */}
+        <div class="flex justify-center items-center h-screen">
+            <h1 className="text-4xl text-center">To Do App </h1>
+            <form onSubmit={createtodo} class="bg-white p-4 rounded-lg shadow-md">
+                <input
+                    type="text"
+                    value={task}
+                    onChange={(event) => {
+                        setTask(event.target.value);
+                    }}
+                    class="w-64 p-2 border border-gray-300 rounded-md"
+                />
+                <button id="todo" type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md ml-2">
+                    Todo
+                </button>
+            </form>
+
+
+            <ul>
+                {todos.map((item) => {             // here todos.map is mappint out each element in the form of li we could also get the same result if we have used <li> "mehul"</li> in the const array then returned simply {todos}.
+                    return <div key={item.id}>
+                        <li>{item.todo}  ({item.id})</li>
+                        <button class="bg-red-500 text-white px-2 py-2 rounded-md ml-2" onClick={() => deleteitem(item.id)}>Delete</button>
+                        {/* here we have used ()=> deleteitem(item.id) because we want to delete the items on the basis of their id  */}
                     </div>
-            })}
-        </ul>
-         
+                })}
+            </ul>
+        </div>
+
+
     </div>
 }
 
