@@ -18,11 +18,11 @@ const AddTodo = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-green-400 to-blue-500 flex justify-center ">
-      <div className="max-w-lg flex-grow">
+      <div className="max-w-sm md:max-w-lg flex-grow ">
         <h1 className="pt-16 pb-3 text-center text-white text-3xl font-bold">
           My Tasks
         </h1>
-        <form onSubmit={addTodoHandler} className=" ml-3 mr-3">
+        <form onSubmit={addTodoHandler} className=" ml-3 mr-3 ">
           <input
             id="form"
             type="text"
