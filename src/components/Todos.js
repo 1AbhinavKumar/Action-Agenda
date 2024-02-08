@@ -32,7 +32,8 @@ const Todos = () => {
             className="flex items-center justify-between m-2 p-2 border-2 rounded "
           >
             {editableTodo === todo.id ? (
-              <>
+              <>npm install --save-dev @babel/plugin-proposal-private-property-in-object
+
                 <textarea
                   className="whitespace-pre-wrap border-none resize-none focus:outline-none w-full"
                   value={updatedText}
