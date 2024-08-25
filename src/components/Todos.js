@@ -23,17 +23,17 @@ const Todos = () => {
   return (
     <>
       <div className=" ">
-        <h1 className="text-2xl font-bold mb-2">Todos</h1>
+        <h1 className=" underline sm:text-4xl font-bold mb-2 ">Actions</h1>
       </div>
-      <ul>
+      <ul className=" grid sm:grid-cols-2 md:grid-cols-3 ">
         {todos.map((todo) => (
           <li
             key={todo.id}
-            className="flex items-center justify-between m-2 p-2 border-2 rounded "
+            className="flex items-baseline justify-between m-2 p-2 border-2 rounded bg-blue-200 bg-opacity-70"
+            // style={{}}
           >
             {editableTodo === todo.id ? (
-              <>npm install --save-dev @babel/plugin-proposal-private-property-in-object
-
+              <>
                 <textarea
                   className="whitespace-pre-wrap border-none resize-none focus:outline-none w-full"
                   value={updatedText}
