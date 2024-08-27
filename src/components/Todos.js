@@ -23,7 +23,7 @@ const Todos = () => {
   return (
     <>
       <div className=" ">
-        <h1 className=" underline sm:text-4xl font-bold mb-2 ">Actions</h1>
+        <h1 className=" underline text-4xl sm:text-6xl mb-2 font-qwithergryphen font-extrabold ">Actions</h1>
       </div>
       <ul className=" grid sm:grid-cols-2 md:grid-cols-3 ">
         {todos.map((todo) => (

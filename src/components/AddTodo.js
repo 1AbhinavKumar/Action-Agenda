@@ -26,7 +26,7 @@ const AddTodo = () => {
       }}
     >
       <div className="w-full flex-grow ">
-        <h1 className="pt-16 pb-3 text-center text-white text-5xl sm:text-8xl font-bold font-qwithergryphen">
+        <h1 className="pt-16 pb-3 text-center text-blue-700 text-5xl sm:text-8xl font-bold font-qwithergryphen underline">
           Action Agenda
         </h1>
         <form onSubmit={addTodoHandler} className=" ml-3 mr-3">
@@ -35,7 +35,7 @@ const AddTodo = () => {
             type="text"
             value={input}
             placeholder="Enter your actions"
-            className="rounded-md p-2 sm:w-1/2 w-full bg-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500 "
+            className="rounded-md p-2 sm:w-1/2 w-full bg-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 "
             onChange={(e) => setInput(e.target.value)}
             style={{ overflowWrap: "break-word", maxWidth: "100%" }}
           />
